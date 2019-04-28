@@ -1478,9 +1478,10 @@ DROP TABLE IF EXISTS `time`;
 CREATE TABLE IF NOT EXISTS `time` (
   `StartTime` TIME NOT NULL PRIMARY KEY,
   `EndTime` TIME DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latinl;
+);
 
-INSERT INTO time (StartTime) values ('17:00:00');
+INSERT INTO time (StartTime, EndTime) values ('17-00-00', '20-00-00');
+
 
 
 
