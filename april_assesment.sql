@@ -1473,15 +1473,25 @@ COMMIT;
 -- Table structure for table `schoolimport`
 --
 
--- Times For Interviews
-DROP TABLE IF EXISTS `time`;
-CREATE TABLE IF NOT EXISTS `time` (
-  `StartTime` TIME NOT NULL PRIMARY KEY,
-  `EndTime` TIME DEFAULT NULL
+-- Times For The School To Start Interviewing
+DROP TABLE IF EXISTS `schoolTimes`;
+CREATE TABLE IF NOT EXISTS `schoolTimes` (
+  `SchoolStartTime` TIME NOT NULL PRIMARY KEY,
+  `SchoolEndTime` TIME DEFAULT NULL
 );
 
-INSERT INTO time (StartTime, EndTime) values ('17-00-00', '20-00-00');
+INSERT INTO schoolTimes (SchoolStartTime, SchoolEndTime) values ('17-00-00', '20-00-00');
 
+
+
+
+-- Times For Interviews
+DROP TABLE IF EXISTS `interviewTimes`;
+CREATE TABLE IF NOT EXISTS `interviewTimes` SELECT * FROM schoolimport WHERE TeacherTitle AND TeacherSurname AND SubjectName AND StudentFirstName AND StudentSurname AND ParentFirstName AND ParentSurname;
+ALTER TABLE interviewTimes
+  ADD COLUMN InterviewNumber int(10) DEFAULT NULL,
+  ADD COLUMN StartTime TIME DEFAULT NULL,
+  ADD COLUMN EndTime TIME DEFAULT NULL;
 
 
 
