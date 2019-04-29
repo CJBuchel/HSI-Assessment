@@ -23,6 +23,8 @@ namespace GUI
         {
             InitializeComponent();
             showdata();
+            dataGridView2.Hide();
+            dataGridView3.Hide();
         }
 
         void entity101vision_NewFrame(object sender, NewFrameEventArgs eventArgs)
@@ -53,15 +55,54 @@ namespace GUI
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            SearchData(textBox1.Text);
+            SearchInterviewData(textBox1.Text);
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            SearchInterviewTimes(textBox2.Text);
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            SearchUsers(textBox3.Text);
+        }
+
 
         public void showdata()
         {
             adpt = new MySqlDataAdapter("Select * from schoolimport", Schoolcon);
             dt = new DataTable();
             adpt.Fill(dt);
+
+            // Data Shown
+            dataGridView1.Show();
             dataGridView1.DataSource = dt;
+            dataGridView2.Hide();
+            dataGridView3.Hide();
+
+            // TextBox Shown
+            textBox1.Show();
+            textBox2.Hide();
+            textBox3.Hide();
+        }
+
+        public void showUserData()
+        {
+            adpt = new MySqlDataAdapter("Select * From Users", Schoolcon);
+            dt = new DataTable();
+            adpt.Fill(dt);
+
+            // Data Shown
+            dataGridView3.Show();
+            dataGridView3.DataSource = dt;
+            dataGridView1.Hide();
+            dataGridView2.Hide();
+
+            // TextBox Shown
+            textBox3.Show();
+            textBox1.Hide();
+            textBox2.Hide();
         }
 
         public void showTimesData()
@@ -69,10 +110,20 @@ namespace GUI
             adpt = new MySqlDataAdapter("Select * From interviewTimes", Schoolcon);
             dt = new DataTable();
             adpt.Fill(dt);
-            dataGridView1.DataSource = dt;
+
+            // Data Shown
+            dataGridView2.Show();
+            dataGridView2.DataSource = dt;
+            dataGridView1.Hide();
+            dataGridView3.Hide();
+
+            // TextBox Shown
+            textBox2.Show();
+            textBox1.Hide();
+            textBox3.Hide();
         }
 
-        public void SearchData(string search)
+        public void SearchInterviewData(string search)
         {
            // Teacher Title
             string query = "select * FROM schoolimport WHERE " +
@@ -100,9 +151,73 @@ namespace GUI
             dataGridView1.DataSource = dt;
         }
 
+        public void SearchInterviewTimes(string search)
+        {
+            // Teacher Title
+            string query = "select * FROM interviewTimes WHERE " +
+                "InterviewNumber LIKE '%" + search + "%'" +
+                " OR StartTime LIKE '%" + search + "%'" +
+                " OR EndTime LIKE '%" + search + "%'" +
+
+                " OR TeacherCode LIKE '%" + search + "%'" +
+                " OR TeacherSurname LIKE '%" + search + "%'" +
+                " OR SubjectName LIKE '%" + search + "%'" +
+                " OR StudentFirstName LIKE '%" + search + "%'" +
+                " OR StudentSurname LIKE '%" + search + "%'" +
+                " OR ParentFirstName LIKE '%" + search + "%'" +
+                " OR ParentSurname LIKE '%" + search + "%'" +
+                "";
+
+            // Data Query (Names)
+            adpt = new MySqlDataAdapter(query, Schoolcon);
+
+            // Data Show/Fill
+            dt = new DataTable();
+            adpt.Fill(dt);
+            dataGridView2.DataSource = dt;
+        }
+
+        public void SearchUsers(string search)
+        {
+            // Teacher Title
+            string query = "select * FROM users WHERE " +
+                "USERNAME LIKE '%" + search + "%'" +
+                " OR PASSWORD LIKE '%" + search + "%'" +
+                "";
+
+            // Data Query (Names)
+            adpt = new MySqlDataAdapter(query, Schoolcon);
+
+            // Data Show/Fill
+            dt = new DataTable();
+            adpt.Fill(dt);
+            dataGridView3.DataSource = dt;
+        }
+
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             showdata();
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bunifuFlatButton5_Click(object sender, EventArgs e)
+        {
+            showUserData();
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bunifuFlatButton6_Click(object sender, EventArgs e)
+        {
+            AddUser AU = new AddUser();
+            AU.Show();
         }
     }
 }

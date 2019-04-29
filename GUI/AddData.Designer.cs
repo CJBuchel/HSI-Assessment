@@ -82,9 +82,9 @@
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.Cyan;
             this.bunifuCustomLabel2.Location = new System.Drawing.Point(12, 135);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(154, 16);
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(158, 16);
             this.bunifuCustomLabel2.TabIndex = 1;
-            this.bunifuCustomLabel2.Text = "Teacher Title (Mr/Mrs/Dr";
+            this.bunifuCustomLabel2.Text = "Teacher Title (Mr/Mrs/Dr)";
             // 
             // bunifuCustomTextbox1
             // 
@@ -93,6 +93,7 @@
             this.bunifuCustomTextbox1.Name = "bunifuCustomTextbox1";
             this.bunifuCustomTextbox1.Size = new System.Drawing.Size(100, 20);
             this.bunifuCustomTextbox1.TabIndex = 2;
+            this.bunifuCustomTextbox1.TextChanged += new System.EventHandler(this.bunifuCustomTextbox1_TextChanged);
             // 
             // bunifuCustomLabel3
             // 
@@ -386,6 +387,7 @@
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuFlatButton1.Textcolor = System.Drawing.Color.Cyan;
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
             // bunifuFlatButton2
             // 

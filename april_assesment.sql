@@ -1480,18 +1480,33 @@ CREATE TABLE IF NOT EXISTS `schoolTimes` (
   `SchoolEndTime` TIME DEFAULT NULL
 );
 
-INSERT INTO schoolTimes (SchoolStartTime, SchoolEndTime) values ('17-00-00', '20-00-00');
+INSERT INTO schoolTimes (SchoolStartTime, SchoolEndTime) values ('17:00:00', '20:00:00');
 
 
 
 
 -- Times For Interviews
 DROP TABLE IF EXISTS `interviewTimes`;
-CREATE TABLE IF NOT EXISTS `interviewTimes` SELECT * FROM schoolimport WHERE TeacherTitle AND TeacherSurname AND SubjectName AND StudentFirstName AND StudentSurname AND ParentFirstName AND ParentSurname;
-ALTER TABLE interviewTimes
-  ADD COLUMN InterviewNumber int(10) DEFAULT NULL,
-  ADD COLUMN StartTime TIME DEFAULT NULL,
-  ADD COLUMN EndTime TIME DEFAULT NULL;
+CREATE TABLE IF NOT EXISTS `interviewTimes`(
+  `InterviewNumber` int(10) DEFAULT NULL,
+  `StartTime` TIME DEFAULT NULL,
+  `EndTime` TIME DEFAULT NULL,
+
+  `TeacherCode` varchar(8) DEFAULT NULL,
+  `TeacherSurname` varchar(20) DEFAULT NULL,
+  `SubjectName` varchar(30) DEFAULT NULL,
+  `StudentFirstName` varchar(20) DEFAULT NULL,
+  `StudentSurname` varchar(20) DEFAULT NULL,
+  `ParentFirstName` varchar(20) DEFAULT NULL,
+  `ParentSurname` varchar(20) DEFAULT NULL
+);
+
+
+INSERT INTO interviewTimes (TeacherCode, TeacherSurname, SubjectName, StudentFirstName, StudentSurname, ParentFirstName, ParentSurname)
+SELECT TeacherCode, TeacherSurname, SubjectName, StudentFirstName, StudentSurname, ParentFirstName, ParentSurname
+FROM schoolimport;
+
+
 
 
 
@@ -1500,7 +1515,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `USERNAME` varchar(50) NOT NULL PRIMARY KEY,
   `PASSWORD` varchar(50) DEFAULT NULL,
-  `isParent` boolean DEFAULT NULL
+  `isParent` boolean DEFAULT FALSE
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 INSERT INTO users (USERNAME, PASSWORD, isParent) values ('admin', 'admin', false);
