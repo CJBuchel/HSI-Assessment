@@ -38,17 +38,12 @@ namespace GUI
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
-            adpt = new MySqlDataAdapter("Select * from visiondata", Schoolcon);
-            dt = new DataTable();
-            adpt.Fill(dt);
+            showdata();
         }
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
-
-            adpt = new MySqlDataAdapter("Select * from visiondata", Schoolcon);
-            dt = new DataTable();
-            adpt.Fill(dt);
+            showTimesData();
         }
 
         private void bunifuFlatButton4_Click(object sender, EventArgs e)
@@ -64,6 +59,14 @@ namespace GUI
         public void showdata()
         {
             adpt = new MySqlDataAdapter("Select * from schoolimport", Schoolcon);
+            dt = new DataTable();
+            adpt.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        public void showTimesData()
+        {
+            adpt = new MySqlDataAdapter("Select * From interviewTimes", Schoolcon);
             dt = new DataTable();
             adpt.Fill(dt);
             dataGridView1.DataSource = dt;
