@@ -46,7 +46,7 @@ namespace GUI
         {
             if (bunifuCustomTextbox1.Text != "" && bunifuCustomTextbox2.Text != "" && bunifuCustomTextbox3.Text != "" && bunifuCustomTextbox4.Text != "" && bunifuCustomTextbox5.Text != "" && bunifuCustomTextbox6.Text != "" && bunifuCustomTextbox7.Text != "" && bunifuCustomTextbox8.Text != "" && bunifuCustomTextbox9.Text != "")
             {
-                MySqlConnection con = new MySqlConnection("server=localhost;user id=root;database=skynet;port=3308;persistsecurityinfo=True");
+                MySqlConnection con = new MySqlConnection("server=localhost;user id=root;database=skynet;port=3306;persistsecurityinfo=True");
                 con.Open();
                 MySqlDataAdapter sda = new MySqlDataAdapter("INSERT INTO schoolimport (TeacherTitle, TeacherSurname, SubjectName, StudentFirstName, StudentSurname, StudentYear, ParentFirstName, ParentSurname, ParentEmail)" +
                     " values ('" + bunifuCustomTextbox1.Text + "', '" + bunifuCustomTextbox2.Text + "', '" + bunifuCustomTextbox3.Text + "', '" + bunifuCustomTextbox4.Text + "', '" + bunifuCustomTextbox5.Text + "', " + bunifuCustomTextbox6.Text + ", '" + bunifuCustomTextbox7.Text + "', '" + bunifuCustomTextbox8.Text + "', '" + bunifuCustomTextbox9.Text + "');", con);

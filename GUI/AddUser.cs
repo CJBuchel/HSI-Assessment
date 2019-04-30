@@ -44,7 +44,7 @@ namespace GUI
                     }
                     else if (bunifuCustomTextbox2.Text == bunifuCustomTextbox3.Text)
                     {
-                        MySqlConnection con = new MySqlConnection("server=localhost;user id=root;database=skynet;port=3308;persistsecurityinfo=True");
+                        MySqlConnection con = new MySqlConnection("server=localhost;user id=root;database=skynet;port=3306;persistsecurityinfo=True");
                         con.Open();
                         //MySqlCommand cmd = new MySqlCommand("select * from users where Username='" + textBox1.Text + "' and Password='" + textBox2.Text + "'", con);
                         //MySqlDataAdapter sda = new MySqlDataAdapter("INSERT INTO users WHERE Username='" + bunifuCustomTextbox1.Text + "' and Password='" + bunifuCustomTextbox2.Text + "'", con);
