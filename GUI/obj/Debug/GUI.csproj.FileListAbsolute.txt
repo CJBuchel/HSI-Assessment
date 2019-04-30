@@ -130,3 +130,4 @@ D:\Users\Conno\Documents\School\ComputerScience\DataBases\HSI_Asignment\GUI\obj\
 D:\Users\Conno\Documents\School\ComputerScience\DataBases\HSI_Asignment\GUI\obj\Debug\GUI.pdb
 D:\Users\Conno\Documents\School\ComputerScience\DataBases\HSI_Asignment\GUI\obj\Debug\GUI.AddData.resources
 D:\Users\Conno\Documents\School\ComputerScience\DataBases\HSI_Asignment\GUI\obj\Debug\GUI.AddUser.resources
+D:\Users\Conno\Documents\School\ComputerScience\DataBases\HSI_Asignment\GUI\obj\Debug\GUI.MainParents.resources

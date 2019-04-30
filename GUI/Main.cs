@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class Main : Form
     {
-        MySqlConnection Schoolcon = new MySqlConnection("server=localhost;user id=root;database=skynet;port=3308;persistsecurityinfo=True");
+        MySqlConnection Schoolcon = new MySqlConnection("server=localhost;user id=root;database=skynet;port=3306;persistsecurityinfo=True");
         MySqlCommand cmd;
         MySqlDataAdapter adpt;
         DataTable dt;
