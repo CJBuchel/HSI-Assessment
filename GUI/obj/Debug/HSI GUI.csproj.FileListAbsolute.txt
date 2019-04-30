@@ -68,3 +68,4 @@ D:\Users\Conno\Documents\School\ComputerScience\DataBases\HSI_Asignment\GUI\obj\
 D:\Users\Conno\Documents\School\ComputerScience\DataBases\HSI_Asignment\GUI\obj\Debug\HSI GUI.csproj.CopyComplete
 D:\Users\Conno\Documents\School\ComputerScience\DataBases\HSI_Asignment\GUI\obj\Debug\GUI.exe
 D:\Users\Conno\Documents\School\ComputerScience\DataBases\HSI_Asignment\GUI\obj\Debug\GUI.pdb
+D:\Users\Conno\Documents\School\ComputerScience\DataBases\HSI_Asignment\GUI\obj\Debug\HSI GUI.csprojAssemblyReference.cache
