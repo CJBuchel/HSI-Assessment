@@ -32,7 +32,7 @@ And Assumed to be read on github @ `https://github.com/CJBuchel/HSI-Assessment`
 
 # Deleting
 
-- After viewing the software and mostlikly the importme.sql you can uninstall the gui from the start menu. it should just be named `GUI` and you can delete any other files associated with the program.
+- After viewing the software and most likly the importme.sql you can uninstall the gui from the start menu. it should just be named `GUI` and you can delete any other files associated with the program.
 
 p.s give me extra marks. And you too can own your very own Interview times GUI
 
